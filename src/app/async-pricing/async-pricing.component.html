@@ -1,0 +1,17 @@
+<div class="component-wrapper">
+  <h2>Async pricing</h2>
+  <div class="pricing-wrapper">
+    <div class="microsoft-pricing">
+      <div class="current-price">
+        <div>Microsoft price</div>
+        <div>{{instrumentService.microsoftSubject | async}}</div>
+      </div>
+    </div>
+    <div class="usd-pln-pricing">
+      <div class="current-price">
+        <div>USD/PLN price</div>
+        <div>{{instrumentService.usdplnSubject | async}}</div>
+      </div>
+    </div>
+  </div>
+</div>
