@@ -2,15 +2,33 @@
   <h2>Observables</h2>
   <div class="pricing-wrapper">
     <div class="microsoft-pricing">
-      <div class="current-price">
-        <div>Microsoft price</div>
+        <h3>Microsoft</h3>
+        <div class="price-wrapper">
+          <div>Opening price</div>
+          <div>{{openingPriceMicrosoftValue}}</div>
+        </div>
+      <div class="price-wrapper">
+        <div>Current price</div>
         <div>{{microsoftStockPrice}}</div>
+      </div>
+      <div class="price-wrapper">
+        <div>Price change</div>
+        <div class="change-price-wrapper" [ngClass]="(microsoftStockPrice - openingPriceMicrosoftValue) > 0 ? 'green' : 'red'">{{changeMicrosoftStockPrice}}</div>
       </div>
     </div>
     <div class="usd-pln-pricing">
-      <div class="current-price">
-        <div>USD/PLN price</div>
-        <div>{{usdPLNprice}}</div>
+      <h3>USD/PLN</h3>
+      <div class="price-wrapper">
+        <div>Opening price</div>
+        <div>{{openingPriceUsd}}</div>
+      </div>
+      <div class="price-wrapper">
+        <div>Current price</div>
+        <div>{{usdPlnPrice}}</div>
+      </div>
+      <div class="price-wrapper">
+        <div>Price change</div>
+        <div class="change-price-wrapper" [ngClass]="(usdPlnPrice - openingPriceUsd) > 0 ? 'green' : 'red'">{{changeUSDPln}}</div>
       </div>
     </div>
   </div>
