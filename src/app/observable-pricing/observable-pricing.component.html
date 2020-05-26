@@ -15,6 +15,12 @@
         <div>Price change</div>
         <div class="change-price-wrapper" [ngClass]="(microsoftStockPrice - openingPriceMicrosoftValue) > 0 ? 'green' : 'red'">{{changeMicrosoftStockPrice}}</div>
       </div>
+      <br/>
+      <br/>
+      <div class="price-wrapper">
+        <div>Microsoft Price in PLN</div>
+        <div class="change-price-wrapper">{{microsoftPriceInPln}}</div>
+      </div>
     </div>
     <div class="usd-pln-pricing">
       <h3>USD/PLN</h3>

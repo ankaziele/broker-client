@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { InstrumentService } from '../services/instrument.service';
-import { Subscription } from 'rxjs';
-import { first } from 'rxjs/operators';
+import { merge, Subscription } from 'rxjs';
+import { first, mapTo } from 'rxjs/operators';
 
 @Component({
   selector: 'app-observable-pricing',
@@ -16,11 +16,11 @@ export class ObservablePricingComponent implements OnInit {
   changeMicrosoftStockPrice: string;
 
   usdPlnPrice: number;
-  openingPriceUsdPln: Subscription;
-  openingPriceUsdPlnValue: number;
   changeUSDPln: string;
 
   openingPriceUsd: number;
+
+  microsoftPriceInPln: number;
 
   constructor(private instrumentService: InstrumentService) { }
 
@@ -55,6 +55,13 @@ export class ObservablePricingComponent implements OnInit {
     })
 
 
-  }
+    const mergedValues = merge(
+      this.instrumentService.usdplnSubject.pipe(mapTo('first')),
+      this.instrumentService.microsoftSubject.pipe(mapTo('second'))
+    )
 
+    mergedValues.subscribe( val =>
+      this.microsoftPriceInPln = this.microsoftStockPrice * this.usdPlnPrice
+    )
+  }
 }
