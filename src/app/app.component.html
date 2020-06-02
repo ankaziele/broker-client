@@ -1,8 +1,21 @@
 <h1>Test</h1>
+<p>Microsoft price:{{microsofrPrice}}</p>
+<p>USDPLN price:{{usdPLNprice}}</p>
 
+
+
+<!--zadanie 1-->
+<span>USDPLN price: </span>
+<span>{{instrumentService.usdplnSubject | async}}</span>
+
+
+<h1>Opening price: {{openingPriceUsdPln}}</h1>
+<p [ngClass]="(usdPLNprice - openingPriceUsdPln) > 0 ? 'green' : 'red'">current: {{currentPriceChange}}</p>
+
+<span>Microsof Price in PLN:  </span><span>{{microsoftPricePLN}}</span>
 
 <!--merdz i dodatkowy component z async-->
 
 
-<app-async-pricing></app-async-pricing>
 <app-observable-pricing></app-observable-pricing>
+<app-async-pricing></app-async-pricing>

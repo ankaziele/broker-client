@@ -2,15 +2,40 @@
   <h2>Async pricing</h2>
   <div class="pricing-wrapper">
     <div class="microsoft-pricing">
-      <div class="current-price">
-        <div>Microsoft price</div>
-        <div>{{instrumentService.microsoftSubject | async}}</div>
+      <h3>Microsoft</h3>
+      <div class="price-wrapper">
+        <div>Opening price</div>
+        <div>{{openingMicrosoftPrice | async}}</div>
+      </div>
+      <div class="price-wrapper">
+        <div>Current price</div>
+        <div>{{currentMicrosoftPrice | async}}</div>
       </div>
     </div>
+
+    <div class="price-wrapper">
+      <div>Price change</div>
+      <div class="change-price-wrapper" [ngClass]="(microsoftPriceChange | async) > 0 ? 'green' : 'red'">{{(microsoftPriceChange | async)}}%</div>
+    </div>
+
+    <div class="price-wrapper">
+      <div>Microsoft in PLN price</div>
+      <div>{{microsoftPriceInPLN | async}}</div>
+    </div>
+
     <div class="usd-pln-pricing">
-      <div class="current-price">
+      <h3>USD/PLN</h3>
+      <div class="price-wrapper">
+        <div>Opening price</div>
+        <div>{{openingUSDPLNPrice | async}}</div>
+      </div>
+      <div class="price-wrapper">
         <div>USD/PLN price</div>
-        <div>{{instrumentService.usdplnSubject | async}}</div>
+        <div>{{currentUsdPlnPrice | async}}</div>
+      </div>
+      <div class="price-wrapper">
+        <div>Price change</div>
+        <div class="change-price-wrapper" [ngClass]="(usdPlnPriceChange | async) > 0 ? 'green' : 'red'">{{(usdPlnPriceChange | async)}}%</div>
       </div>
     </div>
   </div>

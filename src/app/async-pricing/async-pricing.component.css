@@ -1,0 +1,25 @@
+.component-wrapper {
+  background: aquamarine;
+}
+
+.price-wrapper {
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.change-price-wrapper {
+  width: 100%;
+  max-width: 100px;
+  text-align: end;
+}
+
+
+.green {
+  background: greenyellow;
+}
+
+.red {
+  background: red;
+}

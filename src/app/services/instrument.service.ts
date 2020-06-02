@@ -15,10 +15,10 @@ export class InstrumentService {
     price: 4.14,
   }
 
-  microsoftSubject = new Subject();
+  microsoftSubject = new Subject<number>();
   usdplnSubject = new Subject<number>();
 
-  constructor() { 
+  constructor() {
     this.emitNewPriceMicrosoft()
     this.emitNewPricePln()
   }
